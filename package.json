@@ -1,0 +1,25 @@
+{
+  "name": "vue-bem",
+  "version": "1.0.0",
+  "description": "utility functions to create BEM class names for Vue components",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmikeschu/vue-bem.git"
+  },
+  "keywords": [
+    "BEM",
+    "Vue",
+    "CSS",
+    "utilities"
+  ],
+  "author": "tmikeschu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tmikeschu/vue-bem/issues"
+  },
+  "homepage": "https://github.com/tmikeschu/vue-bem#readme"
+}
