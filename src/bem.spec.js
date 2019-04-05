@@ -1,4 +1,5 @@
 import bem from "./bem";
+
 // Read more about BEM css here: http://getbem.com/introduction/
 
 describe("bem", () => {
