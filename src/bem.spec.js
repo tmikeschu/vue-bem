@@ -30,7 +30,7 @@ describe("bem", () => {
     describe('a "modifiers" object for --modifiers', () => {
       it("and returns a string of the selector", () => {
         const actual = block({
-          modifiers: { active: true, transparent: true }
+          modifiers: { active: true, transparent: true },
         });
         const expected = "navbar navbar--active navbar--transparent";
         expect(actual).toEqual(expected);
@@ -42,8 +42,8 @@ describe("bem", () => {
             active: true,
             transparent: null,
             disabled: false,
-            whatever: undefined
-          }
+            whatever: undefined,
+          },
         });
         const expected = "navbar navbar--active";
         expect(actual).toEqual(expected);

@@ -28,16 +28,16 @@ import curryN from "ramda/src/curryN";
 const filterModifiers = compose(
   map(head),
   filter(last),
-  toPairs
+  toPairs,
 );
 
 const makeElement = block =>
   reduce(
     compose(
       join("__"),
-      pair
+      pair,
     ),
-    block
+    block,
   );
 
 const bem = curryN(
@@ -45,7 +45,7 @@ const bem = curryN(
   (block, { element, elements = [], modifiers = {} } = {}) => {
     const selector = compose(
       makeElement(block),
-      ifElse(isNil, always(elements), of)
+      ifElse(isNil, always(elements), of),
     )(element);
 
     return compose(
@@ -54,20 +54,20 @@ const bem = curryN(
       map(
         compose(
           join("--"),
-          pair(selector)
-        )
+          pair(selector),
+        ),
       ),
-      filterModifiers
+      filterModifiers,
     )(modifiers);
-  }
+  },
 );
 
 export const mixin = {
   computed: {
     block() {
       return bem(this.$options.name);
-    }
-  }
+    },
+  },
 };
 
 export default bem;
