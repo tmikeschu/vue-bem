@@ -4,7 +4,8 @@
   "description": "utility functions to generate BEM class names for Vue components",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
