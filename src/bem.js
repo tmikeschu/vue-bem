@@ -12,7 +12,6 @@ import isNil from "ramda/src/isNil";
 import of from "ramda/src/of";
 import join from "ramda/src/join";
 import pair from "ramda/src/pair";
-import curryN from "ramda/src/curryN";
 
 // Protip: `concat` takes a singular element OR an array.
 // `concat`ing an empty array B to an array A returns the same array A
@@ -40,34 +39,33 @@ const makeElement = block =>
     block,
   );
 
-const bem = curryN(
-  2,
-  (block, { element, elements = [], modifiers = {} } = {}) => {
-    const selector = compose(
-      makeElement(block),
-      ifElse(isNil, always(elements), of),
-    )(element);
+export const bem = block => ({
+  element,
+  elements = [],
+  modifiers = {},
+} = {}) => {
+  const selector = compose(
+    makeElement(block),
+    ifElse(isNil, always(elements), of),
+  )(element);
 
-    return compose(
-      join(" "),
-      concat(of(selector)),
-      map(
-        compose(
-          join("--"),
-          pair(selector),
-        ),
+  return compose(
+    join(" "),
+    concat(of(selector)),
+    map(
+      compose(
+        join("--"),
+        pair(selector),
       ),
-      filterModifiers,
-    )(modifiers);
-  },
-);
+    ),
+    filterModifiers,
+  )(modifiers);
+};
 
-export const mixin = {
+export default {
   computed: {
     block() {
       return bem(this.$options.name);
     },
   },
 };
-
-export default bem;

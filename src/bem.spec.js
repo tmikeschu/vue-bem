@@ -1,4 +1,4 @@
-import bem from "./bem";
+import { bem } from "./bem";
 
 // Read more about BEM css here: http://getbem.com/introduction/
 
@@ -8,6 +8,14 @@ describe("bem", () => {
     const actual = typeof block;
     const expected = "function";
     expect(actual).toEqual(expected);
+  });
+
+  describe("the return function given no arguments", () => {
+    it("returns a string of the block", () => {
+      const actual = block();
+      const expected = "navbar";
+      expect(actual).toEqual(expected);
+    });
   });
 
   describe("the return function takes an object with", () => {
