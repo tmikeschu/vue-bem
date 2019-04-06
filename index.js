@@ -1,3 +1,6 @@
-const mixin = require("./src/bem");
+const { plugin, mixin } = require("./src/bem")
 
-module.exports = mixin;
+module.exports = {
+  bemPlugin: plugin,
+  bemMixin: mixin,
+}

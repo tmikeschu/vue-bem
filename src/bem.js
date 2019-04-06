@@ -61,7 +61,7 @@ export const mixin = {
   },
 }
 
-export default {
+export const plugin = {
   install: Vue => {
     Vue.mixin(mixin)
   },
