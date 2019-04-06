@@ -1,8 +1,4 @@
-# vue bmx
-
-(v)ue (b)em mi(x)in
-
-![bmx gif](https://media.giphy.com/media/wRawPQwxRMCbe/giphy.gif)
+# Vue BEM Plugin
 
 [BEM](http://getbem.com/introduction/) is a great way to namespace DOM elements.
 If you're like me, however, you can't stand manually writing `__` and `--` over
@@ -136,7 +132,7 @@ To make the `bem` function globally available to all Vue components:
 ```js
 import Vue from "vue"
 import App from "./App.vue"
-import { bemPlugin } from "vue-bmx"
+import { bemPlugin } from "vue-bem-plugin"
 
 Vue.use(bemPlugin)
 
@@ -150,7 +146,7 @@ new Vue({
 ```js
 import Vue from "vue"
 import App from "./App.vue"
-import { bemMixin } from "vue-bmx"
+import { bemMixin } from "vue-bem-plugin"
 
 Vue.mixin(bemMixin)
 
@@ -163,7 +159,7 @@ Alternatively, import the mixin on a per-component basis:
 
 ```vue
 <script>
-import { bemMixin } from "vue-bmx"
+import { bemMixin } from "vue-bem-plugin"
 
 export default {
   name: "Calculator",
