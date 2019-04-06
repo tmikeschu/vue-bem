@@ -13,17 +13,6 @@ import of from "ramda/src/of";
 import join from "ramda/src/join";
 import pair from "ramda/src/pair";
 
-// Protip: `concat` takes a singular element OR an array.
-// `concat`ing an empty array B to an array A returns the same array A
-// and `concat`ing an array A to an empty array B returns array A
-// [1].concat([]) === [1] === [].concat([1])
-//
-// The default values are empty arrays for a more polymorphic interface.
-// i.e., you can supply the plural or singular forms without needed a lot of
-// `if` branching.
-
-// see bem.spec.js for more
-
 const filterModifiers = compose(
   map(head),
   filter(last),
@@ -64,8 +53,10 @@ export const bem = block => ({
 
 export default {
   computed: {
-    block() {
-      return bem(this.$options.name);
+    bem() {
+      const { name: block } = this.$options;
+
+      return Object.assign(bem(block), { block });
     },
   },
 };

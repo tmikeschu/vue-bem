@@ -1,6 +1,4 @@
-import { bem } from "./bem";
-
-// Read more about BEM css here: http://getbem.com/introduction/
+import mixin, { bem } from "./bem";
 
 describe("bem", () => {
   const block = bem("navbar");
@@ -57,5 +55,26 @@ describe("bem", () => {
         expect(actual).toEqual(expected);
       });
     });
+  });
+});
+
+describe("mixin", () => {
+  const component = {
+    $options: {
+      name: "blockNode",
+    },
+  };
+  const boundMixin = mixin.computed.bem.bind(component)();
+
+  it("defines a block property on the factory function", () => {
+    const actual = boundMixin.block;
+    const expected = "blockNode";
+    expect(actual).toEqual(expected);
+  });
+
+  it("stores the component name on the factory function", () => {
+    const actual = boundMixin({ element: "elementNode" });
+    const expected = "blockNode__elementNode";
+    expect(actual).toEqual(expected);
   });
 });
