@@ -1,6 +1,6 @@
 {
-  "name": "vue-bem-gen",
-  "version": "1.0.1",
+  "name": "vue-bmx",
+  "version": "1.0.0",
   "description": "utility functions to generate BEM class names for Vue components",
   "main": "index.js",
   "scripts": {
