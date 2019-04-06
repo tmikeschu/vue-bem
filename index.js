@@ -1,5 +1,3 @@
-const { bemMixin } = require("./src/bem");
+const mixin = require("./src/bem");
 
-module.exports = {
-  bemMixin,
-};
+module.exports = mixin;
