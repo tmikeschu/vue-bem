@@ -4,7 +4,6 @@ import map from "ramda/src/map"
 import toPairs from "ramda/src/toPairs"
 import head from "ramda/src/head"
 import last from "ramda/src/last"
-import concat from "ramda/src/concat"
 import reduce from "ramda/src/reduce"
 import ifElse from "ramda/src/ifElse"
 import always from "ramda/src/always"
@@ -19,14 +18,13 @@ const filterModifiers = compose(
   toPairs,
 )
 
-const makeElement = block =>
-  reduce(
-    compose(
-      join("__"),
-      pair,
-    ),
-    block,
+const stitch = thread =>
+  compose(
+    join(thread),
+    pair,
   )
+
+const makeElement = reduce(stitch("__"))
 
 export const bem = block => ({
   element,
@@ -39,8 +37,7 @@ export const bem = block => ({
   )(element)
 
   return compose(
-    join(" "),
-    concat(of(selector)),
+    reduce(stitch(" "), selector),
     map(
       compose(
         join("--"),
