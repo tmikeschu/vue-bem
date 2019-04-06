@@ -1,23 +1,23 @@
-import compose from "ramda/src/compose";
-import filter from "ramda/src/filter";
-import map from "ramda/src/map";
-import toPairs from "ramda/src/toPairs";
-import head from "ramda/src/head";
-import last from "ramda/src/last";
-import concat from "ramda/src/concat";
-import reduce from "ramda/src/reduce";
-import ifElse from "ramda/src/ifElse";
-import always from "ramda/src/always";
-import isNil from "ramda/src/isNil";
-import of from "ramda/src/of";
-import join from "ramda/src/join";
-import pair from "ramda/src/pair";
+import compose from "ramda/src/compose"
+import filter from "ramda/src/filter"
+import map from "ramda/src/map"
+import toPairs from "ramda/src/toPairs"
+import head from "ramda/src/head"
+import last from "ramda/src/last"
+import concat from "ramda/src/concat"
+import reduce from "ramda/src/reduce"
+import ifElse from "ramda/src/ifElse"
+import always from "ramda/src/always"
+import isNil from "ramda/src/isNil"
+import of from "ramda/src/of"
+import join from "ramda/src/join"
+import pair from "ramda/src/pair"
 
 const filterModifiers = compose(
   map(head),
   filter(last),
   toPairs,
-);
+)
 
 const makeElement = block =>
   reduce(
@@ -26,7 +26,7 @@ const makeElement = block =>
       pair,
     ),
     block,
-  );
+  )
 
 export const bem = block => ({
   element,
@@ -36,7 +36,7 @@ export const bem = block => ({
   const selector = compose(
     makeElement(block),
     ifElse(isNil, always(elements), of),
-  )(element);
+  )(element)
 
   return compose(
     join(" "),
@@ -48,21 +48,21 @@ export const bem = block => ({
       ),
     ),
     filterModifiers,
-  )(modifiers);
-};
+  )(modifiers)
+}
 
 export const mixin = {
   computed: {
     bem() {
-      const { name: block } = this.$options;
+      const { name: block } = this.$options
 
-      return Object.assign(bem(block), { block });
+      return Object.assign(bem(block), { block })
     },
   },
-};
+}
 
 export default {
   install: Vue => {
-    Vue.mixin(mixin);
+    Vue.mixin(mixin)
   },
-};
+}
