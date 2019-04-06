@@ -58,7 +58,7 @@ HTML
 Vue
 
 ```vue
-<div :class="bem({element: "screen"})">...</div>
+<div :class="bem({ element: 'screen' })">...</div>
 ```
 
 HTML
@@ -72,7 +72,7 @@ HTML
 Vue
 
 ```vue
-<div :class="bem({elements: ["screen", "number"})">...</div>
+<div :class="bem({ elements: ['screen', 'number'] })">...</div>
 ```
 
 HTML
@@ -103,7 +103,7 @@ Vue
 <div :class="bem.block">
   <div :class="
       bem({
-        elements: ["screen", "number"],
+        elements: ['screen', 'number'],
         modifiers: { atZero, disabled: false, success: true }
       })
     "
