@@ -1,7 +1,7 @@
 {
-  "name": "vue-bem",
+  "name": "vue-bem-gen",
   "version": "1.0.0",
-  "description": "utility functions to create BEM class names for Vue components",
+  "description": "utility functions to generate BEM class names for Vue components",
   "main": "index.js",
   "scripts": {
     "test": "jest"
