@@ -1,4 +1,4 @@
-import mixin, { bem } from "./bem";
+import plugin, { bem, mixin } from "./bem";
 
 describe("bem", () => {
   const block = bem("navbar");
@@ -76,5 +76,34 @@ describe("mixin", () => {
     const actual = boundMixin({ element: "elementNode" });
     const expected = "blockNode__elementNode";
     expect(actual).toEqual(expected);
+  });
+});
+
+describe("plugin", () => {
+  const makeVue = () => {
+    const mixins = [];
+    return {
+      mixin(m) {
+        mixins.push(m);
+      },
+      mixins() {
+        return mixins;
+      },
+      use(plugin) {
+        plugin.install(this);
+      },
+    };
+  };
+
+  it("defines an install interface for Vue to `use`", () => {
+    const Vue = makeVue();
+    const before = Vue.mixins();
+    expect(before).toEqual([]);
+
+    Vue.use(plugin);
+
+    const after = Vue.mixins();
+    const expected = [mixin];
+    expect(after).toEqual(expected);
   });
 });

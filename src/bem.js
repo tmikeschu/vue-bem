@@ -51,12 +51,18 @@ export const bem = block => ({
   )(modifiers);
 };
 
-export default {
+export const mixin = {
   computed: {
     bem() {
       const { name: block } = this.$options;
 
       return Object.assign(bem(block), { block });
     },
+  },
+};
+
+export default {
+  install: Vue => {
+    Vue.mixin(mixin);
   },
 };
