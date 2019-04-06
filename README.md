@@ -163,7 +163,7 @@ Alternatively, import the mixin on a per-component basis:
 
 ```vue
 <script>
-import bemMixin from "vue-bmx"
+import { bemMixin } from "vue-bmx"
 
 export default {
   name: "Calculator",
