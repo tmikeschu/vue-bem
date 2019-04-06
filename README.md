@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/tmikeschu/vue-bem.svg?branch=master)](https://travis-ci.com/tmikeschu/vue-bem)
+
 # Vue BEM Plugin
 
 [BEM](http://getbem.com/introduction/) is a great way to namespace DOM elements.
