@@ -1,6 +1,6 @@
 {
   "name": "vue-bem-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "utility functions to generate BEM class names for Vue components",
   "main": "index.js",
   "scripts": {
